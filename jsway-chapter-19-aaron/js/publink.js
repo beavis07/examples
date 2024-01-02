@@ -1,10 +1,19 @@
-/* PETE: Clean up the URL when you create a Link so it only has to be done one time */
+/* PETE: Clean up the URL when you create a Link so it only has to be done one time - see "cleanLink" functionn below */
 class Link {
     constructor(title, url, user) {
         this.title = title;
         this.url = cleanLink(url); // Tidy up links at creation-time
         this.user = user;
     }
+}
+
+/* PETE: Add 'https://' to a link if no protocol is given */
+function cleanLink (link) {
+    if (!link.startsWith("https://") && !link.startsWith("http://")) {
+        return "https://" + link;
+    }
+
+    return link;
 }
 
 /* PETE: Normalise the starting list, using the Link class - just so it's consistent */
@@ -89,15 +98,6 @@ function confirmSubmit() {
         confirmMessage.style.padding = "0px";
         console.log("done");
     }, 2000);
-}
-
-/* PETE: Add 'https://' to a link if no protocol is given */
-function cleanLink (link) {
-    if (!link.startsWith("https://") && !link.startsWith("http://")) {
-        return "https://" + link;
-    }
-
-    return link;
 }
 
 //create form once submit button is clicked
