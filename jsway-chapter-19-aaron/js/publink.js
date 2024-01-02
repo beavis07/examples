@@ -90,9 +90,7 @@ function confirmSubmit() {
     confirmMessage.style.padding = "10px";
     confirmMessage.textContent = "Link Submitted";
   
-    /* PETE: Wait two seconds and then remove again.
-       Using "useTimeout" to do a one-time, scheduled action 
-    */
+    /* PETE: Wait two seconds and then remove again. Using "setTimeout" to do a one-time, scheduled action */
     setTimeout(() => {
         confirmMessage.textContent = "";
         confirmMessage.style.padding = "0px";
@@ -101,6 +99,7 @@ function confirmSubmit() {
 }
 
 //create form once submit button is clicked
+/* PETE: Make this a normal function definition - just to be consistent */
 function runForm () {
     const formElement = document.createElement("form");
     formElement.id = "form";
@@ -136,10 +135,7 @@ function runForm () {
     formBlock.appendChild(submitElement);
     formElement.appendChild(formBlock);
 
-    /* PETE: Removed the clause to remove 'runForm' from the submit button
-       Didn't seem to have any purpose
-     */
-
+    /* PETE: Removed the clause to remove 'runForm' from the submit button - Didn't seem to have any purpose */
     submitElement.addEventListener("click", (e) => {
         //create a new link object
         const p = new Link(titleEntry.value, urlEntry.value, nameEntry.value);
